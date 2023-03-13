@@ -81,5 +81,9 @@ module.exports = () => {
 
       return config
     },
+    images: {
+      loader: 'imgix',
+      path: 'https://ariasjose.imgix.net',
+    },
   })
 }
