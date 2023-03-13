@@ -1,5 +1,5 @@
-import { useState } from 'react'
-import { Comments } from 'pliny/comments'
+// import { useState } from 'react'
+// import { Comments } from 'pliny/comments'
 import Link from '@/components/Link'
 import PageTitle from '@/components/PageTitle'
 import SectionContainer from '@/components/SectionContainer'
@@ -20,7 +20,7 @@ const postDateTemplate = {
 export default function PostLayout({ content, authorDetails, next, prev, children }) {
   const { filePath, path, slug, date, title, tags } = content
   const basePath = path.split('/')[0]
-  const [loadComments, setLoadComments] = useState(false)
+  // const [loadComments, setLoadComments] = useState(false)
   return (
     <SectionContainer>
       <BlogSEO url={`${siteMetadata.siteUrl}/${path}`} authorDetails={authorDetails} {...content} />
@@ -89,7 +89,7 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
                 {` • `}
                 <Link href={editUrl(filePath)}>View on GitHub</Link>
               </div>
-              {siteMetadata.comments && (
+              {/* {siteMetadata.comments && (
                 <div
                   className="pt-6 pb-6 text-center text-gray-700 dark:text-gray-300"
                   id="comment"
@@ -99,7 +99,7 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
                   )}
                   {loadComments && <Comments commentsConfig={siteMetadata.comments} slug={slug} />}
                 </div>
-              )}
+              )} */}
             </div>
             <footer>
               <div className="divide-gray-200 text-sm font-medium leading-5 dark:divide-gray-700 xl:col-start-1 xl:row-start-2 xl:divide-y">
