@@ -83,7 +83,7 @@ module.exports = () => {
     },
     images: {
       loader: 'imgix',
-      path: 'https://ariasjose.imgix.net',
+      path: '',
     },
   })
 }
