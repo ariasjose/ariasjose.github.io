@@ -58,8 +58,7 @@ const securityHeaders = [
  * @type {import('next/dist/next-server/server/config').NextConfig}
  **/
 module.exports = () => {
-  const plugins = [withContentlayer, withBundleAnalyzer]
-  return plugins.reduce((acc, next) => next(acc), {
+  const nextConfig = {
     reactStrictMode: true,
     pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
     eslint: {
@@ -82,9 +81,17 @@ module.exports = () => {
       return config
     },
     images: {
-      loader: 'imgix',
-      path: 'https://ariasjose1.imgix.net',
+      // loader: 'imgix',
+      // path: 'https://ariasjose1.imgix.net/',
       // unoptimized: true,
+      loader: 'custom',
+      loaderFile: './scripts/loader.js',
     },
+  }
+  const plugins = [withContentlayer, withBundleAnalyzer]
+  const config = plugins.reduce((acc, plugin) => plugin(acc), {
+    ...nextConfig
   })
+
+  return config
 }
